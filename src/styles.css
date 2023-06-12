@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@fortawesome/fontawesome-svg-core/styles.css";
+
+:root {
+  --turquesa-fondo: #A1E3DF;
+}
+body {
+  font-family: "Montserrat", sans-serif !important;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.btn-green {
+  background-color: var(--turquesa-fondo) !important;
+  color: black !important;
+  transition: 300ms;
+}
+.btn-green:hover {
+  background-color: var(--turquesa-fondo) !important;
+  color: white !important;
+  box-shadow: 0 0 10px var(--turquesa-fondo);
+}
+
+a {
+  text-decoration: none !important;
+}
+
+body {
+  background-image: url(assets/img/fondo-hexagonos.jpg);
+  background-size: cover;
+  margin: 0;
+  height: 100vh;
+}
+
+.swal2-confirm {
+  background-color: rgb(253, 37, 37) !important;
+  transition: 300ms;
+}
+.swal2-cancel:hover {
+  transition: 300ms;
+  box-shadow: 0 0 10px gray;
+
+}
+.swal2-confirm:hover {
+  background-color: rgb(253, 37, 37) !important;
+  box-shadow: 0 0 10px rgb(253, 37, 37);
+
+}
+
+.scroll {
+  width: 100%;
+  height: auto;
+  overflow: scroll;
+  overflow-x: hidden;
+}

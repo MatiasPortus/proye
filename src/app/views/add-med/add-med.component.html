@@ -1,0 +1,37 @@
+<div class="container bg-secondary vh-100">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-lg-12 col-xl-11">
+      <form [formGroup]="addMedicamentoForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label class="form-label">nombre</label>
+          <input type="text" class="form-control" formControlName="nombre">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">laboratorio</label>
+          <input type="text" class="form-control"  formControlName="laboratorio"/>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">formato</label>
+          <input type="text" class="form-control" formControlName="formato">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">dosis</label>
+          <input type="text" class="form-control" formControlName="dosis">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">imagen</label>
+          <input type="text" class="form-control" formControlName="imagen">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">precio</label>
+          <input type="text" class="form-control" formControlName="precio">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">stock</label>
+          <input type="text" class="form-control" formControlName="stock">
+        </div>
+        <input type="submit" value="Enviar" class="btn btn-info">
+      </form>
+    </div>
+  </div>
+</div>
