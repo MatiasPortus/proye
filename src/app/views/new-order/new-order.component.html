@@ -1,1 +1,47 @@
-<p>new-order works!</p>
+<div class="container py-5">
+  <h1>Hacer pedido</h1>
+  <button type="submit" class="btn btn-primary" (click)="getTotalPrice()">Dame el total</button>
+  <button type="submit" class="btn btn-primary" (click)="limpiarCarro()">Limpiar carro</button>
+  <div class="row justify-content-center">
+    <div class="col-md-4 col-lg-3 mb-4" *ngFor="let medicamento of medicamentos">
+      <div class="card h-100" style="border-radius: 15px;">
+        <div class=" ">
+          <img src="{{medicamento.imagen}}" style="border-top-left-radius: 15px; border-top-right-radius: 15px;"
+            class="img-fluid" alt="Laptop" />
+        </div>
+        <div class="card-body pb-0">
+          <div class="d-flex justify-content-between">
+            <div>
+              <p class="card-nombre">{{medicamento.nombre}}</p>
+              <p class="small text-muted">{{medicamento.laboratorio}}</p>
+            </div>
+            <div>
+
+            </div>
+          </div>
+        </div>
+        <hr class="my-0" />
+        <div class="card-body pb-0">
+          <div class="">
+            <p>Forma: <span class="text-muted">{{medicamento.formato}}</span></p>
+            <p>Dosis: <span class="text-muted">{{medicamento.dosis}}</span></p>
+            <p>Precio: <span class="text-muted">{{medicamento.precio}}€</span></p>
+            <p>Stock: <span class="text-muted">{{medicamento.stock}}</span> envases</p>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <form [formGroup]="cantidadInput">
+            <div class="form-group">
+              <input type="number" class="form-control" id="cantidad" aria-describedby="emailHelp" placeholder="Cantidad"
+              formControlName="cantidad">
+            </div>
+            
+            <button type="submit" class="btn btn-primary" (click)="addToCart(medicamento)">Añadir al carro</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
