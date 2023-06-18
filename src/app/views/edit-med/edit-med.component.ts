@@ -1,9 +1,14 @@
 import { Component } from '@angular/core';
+import { Storage, getDownloadURL, ref, uploadBytes } from '@angular/fire/storage';
 import { FormControl, FormGroup } from '@angular/forms';
+import { SafeUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import Medicamento from 'src/app/interfaces/medicamento.interface';
-import { MedicamentoService } from 'src/app/services/medicamento.service';import Swal from 'sweetalert2';
+import { MedicamentoService } from 'src/app/services/medicamento.service';
+import Swal from 'sweetalert2';
+import Toast from 'sweetalert2'
+
 
 
 @Component({
@@ -15,13 +20,18 @@ export class EditMedComponent {
 
  editMedicamentoForm: FormGroup;
  medicamento: Medicamento;
+ image!: File;
+ selectedImage: SafeUrl | undefined;
+
  id: string = this.route.snapshot.params['id'];
+  sanitizer: any;
 
   constructor(
     private medicamentoService: MedicamentoService,
     private router: Router,
     private route: ActivatedRoute,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private storage: Storage
   ) {
     this.editMedicamentoForm = new FormGroup({
       nombre: new FormControl(),
@@ -59,17 +69,24 @@ export class EditMedComponent {
             stock: resp.stock
           });
           this.medicamento = resp;
-          
         } else{
-          this.toastr.error(
-            'No se ha podido recuperar la información del medicamento'
-          );
+          Toast.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'No se ha podido obtener la informacion del medicamento',
+            showConfirmButton: false,
+            timer: 1500
+          });
         }Swal.close();
         },
         error: () => {
-          this.toastr.error(
-            'No se ha podido recuperar la información delmedicamento'
-          );
+          Toast.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'No se ha podido obtener la informacion del medicamento',
+            showConfirmButton: false,
+            timer: 1500
+          });
           Swal.close();
         },
       });
@@ -80,7 +97,25 @@ export class EditMedComponent {
     console.log(this.editMedicamentoForm.value)
     const response = await this.medicamentoService.updateMedicamento(this.editMedicamentoForm.value, this.id);
     console.log(response);
+    this.toastr.success('El medicamento se ha actualizado correctamente', 'Éxito');
     this.editMedicamentoForm.reset();
     this.router.navigate(['/all-meds']);
+  }
+
+  onFileChange($event: any) {
+    const file = $event.target.files[0];
+    console.log(file);
+
+    const imgRef = ref(this.storage, `images/${file.name}`);
+
+    
+    uploadBytes(imgRef, file)
+    .then(async response => {
+        console.log(response);
+        const url = await getDownloadURL(imgRef);
+        this.editMedicamentoForm.value.imagen = url;
+        console.log(url);
+      })
+    .catch(error => console.log(error));
   }
 }

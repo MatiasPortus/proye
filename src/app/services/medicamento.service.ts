@@ -20,8 +20,6 @@ export class MedicamentoService {
     return collectionData(medicamentoRef, { idField: 'id' }) as Observable<Medicamento[]>;
   }
 
-  
-
   deleteMedicamento(medicamento: Medicamento) {
     const medicamentoDocRef = doc(this.firestore, `medicamentos/${medicamento.id}`);
     return deleteDoc(medicamentoDocRef);

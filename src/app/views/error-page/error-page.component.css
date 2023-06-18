@@ -1,0 +1,11 @@
+#background-image {
+  background-image: url(../../../assets/img/capsula-rota.jpg);
+  background-size: cover;
+  margin: 0;
+  height: 60vh;
+}
+
+p {
+  font-size: 24px;
+  font-weight: 500;
+}

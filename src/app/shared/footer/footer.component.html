@@ -1,0 +1,60 @@
+<ng-container
+  *ngIf="
+    !loginService.isLogin()
+  "
+>
+<footer class="text-center bg-dark text-white">
+  <div class="container">
+    <section class="mt-2">
+      <div class="row text-center d-flex justify-content-center pt-4">
+        <div class="col-md-2">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="#!" class="text-white">Sobre nosotros</a>
+          </h6>
+        </div>
+
+        <div class="col-md-2">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="#!" class="text-white">Productos</a>
+          </h6>
+        </div>
+
+        <div class="col-md-2">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="#!" class="text-white">Premios</a>
+          </h6>
+        </div>
+
+        <div class="col-md-2">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="#!" class="text-white">Ayuda</a>
+          </h6>
+        </div>
+
+        <div class="col-md-2">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="#!" class="text-white">Contacto</a>
+          </h6>
+        </div>
+      </div>
+    </section>
+
+    <hr class="my-3" />
+
+    <section class="mb-5">
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-8">
+          <p>
+            FarmaciaApp es una aplicación dedicada a brindarte información y servicios relacionados con la salud. <br> ¡Tu bienestar es nuestra prioridad!
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+    © 2023 Copyright:
+    <a class="text-white" [routerLink]="'/app-home'"> CFGS S2DAW</a>
+  </div>
+</footer>
+</ng-container>

@@ -12,7 +12,7 @@ export class HeaderComponent {
   faCoffee = faCoffee;
 
   constructor(
-    private loginService: LoginService,
+    public loginService: LoginService,
     private router: Router
   ) { }
 
@@ -22,7 +22,8 @@ export class HeaderComponent {
   onLogout() {
     this.loginService.logout()
       .then(() => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/home']);
+        console.log('Logged out');
       })
       .catch((error: any) => console.log(error));
   }

@@ -21,8 +21,10 @@ export class AllMedsComponent {
   }
 
   ngOnInit(): void {
+    Swal.showLoading();
     this.medicamentoService.getAllMedicamentos().subscribe(medicamentos => {
       this.medicamentosFiltrados  = medicamentos;
+      Swal.close();
     })
   }
 
@@ -35,7 +37,6 @@ export class AllMedsComponent {
       confirmButtonText: 'Eliminar',
       cancelButtonText: 'Cancelar',
     }).then(async (result) => {
-      // If the user confirms, the candidate will be deleted
       if (result.isConfirmed) {
         const response = await this.medicamentoService.deleteMedicamento(medicamento);
         console.log(response);

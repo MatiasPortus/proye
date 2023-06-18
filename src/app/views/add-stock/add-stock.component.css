@@ -1,0 +1,30 @@
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+.card-nombre {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.low-stock {
+  color: red;
+}
+.w-80 {
+  width: 80%;
+  margin: 0 auto;
+}
+.bg-lightgrey {
+  background-color: rgb(243, 243, 243);
+}
+.shadow-close {
+  border: 1px solid #6D6D6D;
+  transition: 300ms;
+}
+.shadow-close:hover {
+  border: 1px solid red;
+  box-shadow: 0 0 30px 3px #6d6d6d;
+  background-color: red;
+}

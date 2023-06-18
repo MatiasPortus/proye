@@ -8,3 +8,11 @@ img {
   font-weight: 600;
   font-size: 20px;
 }
+
+.low-stock {
+  color: red;
+}
+.w-80 {
+width: 80%;
+margin: 0 auto;
+}

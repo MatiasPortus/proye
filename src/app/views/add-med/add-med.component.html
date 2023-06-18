@@ -1,37 +1,65 @@
-<div class="container bg-secondary vh-100">
-  <div class="row d-flex justify-content-center align-items-center h-100">
-    <div class="col-lg-12 col-xl-11">
-      <form [formGroup]="addMedicamentoForm" (ngSubmit)="onSubmit()">
-        <div class="mb-3">
-          <label class="form-label">nombre</label>
-          <input type="text" class="form-control" formControlName="nombre">
-        </div>
-        <div class="mb-3">
-          <label class="form-label">laboratorio</label>
-          <input type="text" class="form-control"  formControlName="laboratorio"/>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">formato</label>
-          <input type="text" class="form-control" formControlName="formato">
-        </div>
-        <div class="mb-3">
-          <label class="form-label">dosis</label>
-          <input type="text" class="form-control" formControlName="dosis">
-        </div>
-        <div class="mb-3">
-          <label class="form-label">imagen</label>
-          <input type="text" class="form-control" formControlName="imagen">
-        </div>
-        <div class="mb-3">
-          <label class="form-label">precio</label>
-          <input type="text" class="form-control" formControlName="precio">
-        </div>
-        <div class="mb-3">
-          <label class="form-label">stock</label>
-          <input type="text" class="form-control" formControlName="stock">
-        </div>
-        <input type="submit" value="Enviar" class="btn btn-info">
-      </form>
+<div class="bg-green py-3">
+  <div class="container rounded bg-dark">
+    <h2 class="text-light m-3 p-3">Introduzca los datos del nuevo medicamento</h2>
+    <div class="row justify-content-center m-3">
+      <div class="col-lg-12 col-xl-11 text-light">
+        <form [formGroup]="addMedicamentoForm" (ngSubmit)="onSubmit()">
+          <div class="mb-5 row gx-5">
+            <div class="col-md-6 col-sm-12">
+              <label class="form-label">NOMBRE</label>
+              <div class="">
+                <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre" />
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <label class="form-label">LABORATORIO</label>
+              <div class="">
+                <input type="text" class="form-control" placeholder="Laboratorio" formControlName="laboratorio" />
+              </div>
+            </div>
+          </div>
+          <div class="mb-5 row gx-5">
+            <div class="col-md-6 col-sm-12">
+              <label class="form-label">FORMATO</label>
+              <div class="">
+                <input type="text" class="form-control" placeholder="Formato" formControlName="formato" />
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <label class="form-label">DOSIS</label>
+              <div class="">
+                <input type="text" class="form-control" placeholder="Dosis" formControlName="dosis" />
+              </div>
+            </div>
+          </div>
+          <div class="mb-5 row gx-5">
+            <div class="col-md-6 col-sm-12">
+              <label class="form-label">PRECIO</label>
+              <div class="">
+                <input type="text" class="form-control" placeholder="Precio" formControlName="precio" />
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <label class="form-label">STOCK</label>
+              <div class="">
+                <input type="text" class="form-control" placeholder="Stock" formControlName="stock" />
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">IMAGEN</label>
+            <input type="file" class="form-control" id="profilepicture" name="profilepicture"
+            (change)="onFileUpload($event)" accept="image/*" />
+          </div>
+          
+          <div class="row mt-5 mb-3">
+            <div class="col">
+              <button type="submit" class="btn btn-green float-end p-3">
+                Guardar medicamento
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-</div>

@@ -1,7 +1,7 @@
 import { FormControl } from "@angular/forms";
 
 export default interface Medicamento {
-  id?: string;
+  id: string;
   nombre: string;
   laboratorio: string;
   formato: string;

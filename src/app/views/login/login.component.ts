@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -26,10 +27,11 @@ export class LoginComponent {
   }
 
   onSubmit() {
+    console.log(this.loginForm.value)
     this.loginService.login(this.loginForm.value)
       .then(response => {
         console.log(response);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/app-home']);
       })
       .catch(error => console.log(error));
   }
@@ -38,7 +40,7 @@ export class LoginComponent {
     this.loginService.loginWithGoogle()
       .then(response => {
         console.log(response);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/app-home']);
       })
       .catch(error => console.log(error))
   }

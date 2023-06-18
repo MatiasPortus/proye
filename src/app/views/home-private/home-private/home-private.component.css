@@ -1,3 +1,7 @@
 a {
   text-decoration: none;
 }
+
+.bg-green {
+  background-color: var(--turquesa-fondo);
+}

@@ -9,3 +9,6 @@ a {
   width: 80%;
   margin: 0 auto;
 }
+.router-link-active {
+  color: var(--turquesa-fondo);
+}

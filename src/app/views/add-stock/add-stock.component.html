@@ -1,0 +1,75 @@
+<div class="bg-green py-3">
+  <div class="container rounded bg-dark">
+    <h2 class="text-light m-3 p-3">Seleccione un medicamento para añadir stock</h2>
+    <div class="row justify-content-center m-3">
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let medicamento of medicamentos">
+        <div class="card h-100" style="border-radius: 15px;">
+          <div class=" ">
+            <img src="{{medicamento.imagen}}" style="border-top-left-radius: 15px; border-top-right-radius: 15px;"
+              class="img-fluid" alt="Laptop" />
+          </div>
+          <div class="card-body pb-0">
+            <div class="d-flex justify-content-between">
+              <div>
+                <p class="card-nombre">{{medicamento.nombre}}</p>
+                <p class="small text-muted">{{medicamento.laboratorio}}</p>
+              </div>
+              <div>
+
+              </div>
+            </div>
+          </div>
+          <hr class="my-0" />
+          <div class="card-body pb-0">
+            <div class="">
+              <p>Forma: <span class="text-muted">{{medicamento.formato}}</span></p>
+              <p>Dosis: <span class="text-muted">{{medicamento.dosis}}</span></p>
+              <p>Precio: <span class="text-muted">{{medicamento.precio}}€</span></p>
+              <p [ngStyle]="{'color': (medicamento.stock <= 20) ? 'red' : 'black'}">Stock: <span
+                  [ngClass]="{'low-stock': medicamento.stock < 20}">{{medicamento.stock}}</span> envases</p>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-green w-100" data-bs-toggle="modal"
+              [attr.data-bs-target]="'#exampleModal' + medicamento.nombre">
+              Añadir stock
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" [id]="'exampleModal' + medicamento.nombre" tabindex="-1"
+              aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header w-80 my-2">
+                      <h5 class="modal-title" id="exampleModalLabel">Añadir stock de: <span
+                          class="fw-bold">{{medicamento.nombre}}</span> </h5>
+                      <button type="button" class="btn-close shadow-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body my-3">
+                    <div class="w-80">
+                      <p>Introduzca la cantidad de envases de <span class="fw-bold">{{medicamento.nombre}}</span> que se
+                        añadirán a la farmacia</p>
+                      <form [formGroup]="cantidadInput" class="">
+                        <div class="form-group text-center">
+                          <input type="number" class="form-control my-1" id="cantidad" aria-describedby="emailHelp"
+                            placeholder="Cantidad" formControlName="cantidad">
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="modal-footer w-80 d-flex justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-green" (click)="addStock(medicamento)" data-bs-dismiss="modal">Añadir al
+                      stock</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

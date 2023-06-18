@@ -1,0 +1,64 @@
+label{
+  font-weight: 500;
+  font-size: 16px;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.w-80 {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.hover-shadow input:hover {
+  box-shadow: 0 0 15px rgb(0, 45, 60,.2); 
+}
+.max-size {
+  min-width: 223px;
+  max-width: 223px;
+
+  min-height: 150px;
+  max-height: 150px;
+}
+.img-border {
+  border: 1px solid #002d3c;
+  transition: transform 0.5s;
+}
+.img-border-modal {
+  border: 1px solid #002d3c;
+}
+.img-border:hover {
+  opacity: 0.80;
+}
+.div-imagen {
+  display:inline-block;
+  position:relative;
+}
+
+.div-imagen div {
+  visibility: hidden;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:-1;
+  padding:10px 10px;
+  margin:0 auto;
+}
+.div-imagen:hover div {
+  visibility: visible;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:1;
+  padding:10px 10px;
+  margin:0 auto;
+}
+.hover-effect:hover img {
+  opacity: 0.15;
+  transition: opacity 300ms;
+}
+.hover-effect:hover div img {
+  opacity: 0.75;
+  transition: opacity 300ms;
+}

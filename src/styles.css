@@ -23,6 +23,7 @@ html {
 .btn-green {
   background-color: var(--turquesa-fondo) !important;
   color: black !important;
+  font-weight: 600 !important;
   transition: 300ms;
 }
 .btn-green:hover {
@@ -30,7 +31,9 @@ html {
   color: white !important;
   box-shadow: 0 0 10px var(--turquesa-fondo);
 }
-
+.bg-turq {
+  background-color: var(--turquesa-fondo)!important;
+}
 .container {
   overflow-y: scroll;
 }
@@ -76,4 +79,8 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: #555;
+}
+
+.bg-green {
+  background-color: var(--turquesa-fondo) !important;
 }

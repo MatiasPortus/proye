@@ -1,0 +1,24 @@
+.algo {
+  background-image: url(../../assets/img/fondo-hexagonos.jpg);
+  background-size: cover;
+  margin: 0;
+}
+a {
+  color: white;
+}
+
+.bg-platinum {
+  background-color: #E4E4E5;
+}
+.w-90 {
+  width: 90%;
+  margin: 0 auto;
+}
+.w-80 {
+  width: 80%;
+  margin: 0 auto;
+}
+.w-60 {
+  width: 60%;
+  margin: 0 auto;
+}

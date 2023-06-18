@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomePublicComponent } from './home-public/home-public/home-public.component';
-import { ErrorPageComponent } from './views/error-page/error-page/error-page.component';
+import { HomePublicComponent } from './home-public/home-public.component';
+import { ErrorPageComponent } from './views/error-page/error-page.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { HomePrivateComponent } from './views/home-private/home-private/home-private.component';
@@ -10,10 +10,11 @@ import { AddMedComponent } from './views/add-med/add-med.component';
 import { AllMedsComponent } from './views/all-meds/all-meds.component';
 import { EditMedComponent } from './views/edit-med/edit-med.component';
 import { NewOrderComponent } from './views/new-order/new-order.component';
+import { AddStockComponent } from './views/add-stock/add-stock.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     component: HomePublicComponent
   },
   {
@@ -25,29 +26,39 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'home',
+    path: 'app-home',
     component: HomePrivateComponent,
-    ...canActivate(()=> redirectUnauthorizedTo('/login'))
+    ...canActivate(() => redirectUnauthorizedTo('/login'))
   },
   {
     path: 'add-med',
     component: AddMedComponent,
-    ...canActivate(()=> redirectUnauthorizedTo('/login'))
+    ...canActivate(() => redirectUnauthorizedTo('/login'))
   },
   {
     path: 'all-meds',
     component: AllMedsComponent,
-    ...canActivate(()=> redirectUnauthorizedTo('/login'))
+    ...canActivate(() => redirectUnauthorizedTo('/login'))
   },
   {
     path: 'edit-med/:id',
     component: EditMedComponent,
-    ...canActivate(()=> redirectUnauthorizedTo('/login'))
+    ...canActivate(() => redirectUnauthorizedTo('/login'))
   },
   {
     path: 'new-order',
     component: NewOrderComponent,
-    ...canActivate(()=> redirectUnauthorizedTo('/login'))
+    ...canActivate(() => redirectUnauthorizedTo('/login'))
+  },
+  {
+    path: 'add-stock',
+    component: AddStockComponent,
+    ...canActivate(() => redirectUnauthorizedTo('/login'))
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
   },
   {
     path: '**',
